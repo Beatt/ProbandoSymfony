@@ -1,0 +1,30 @@
+{{ form_start(form) }}
+    {{ form_errors(form) }}
+
+    <div class='item-encabezado'>
+        {{ form_label(form.nombre) }}        
+        {{ form_widget(form.nombre) }}
+        {{ form_errors(form.nombre) }}
+    </div>
+
+    <div class='item-encabezado'>
+        {{ form_label(form.pers_apaterno) }}        
+        {{ form_widget(form.pers_apaterno) }}
+        <div class="error-form">
+        	{{ form_errors(form.pers_apaterno) }}	
+        </div>        
+    </div>
+
+    <div class='item-encabezado'>
+        {{ form_label(form.pers_amaterno) }}        
+        {{ form_widget(form.pers_amaterno) }}
+        <div class="error-form">
+        	{{ form_errors(form.pers_amaterno) }}	
+        </div>        
+    </div>
+
+    <div>
+        {{ form_widget(form.save) }}
+    </div>
+
+{{ form_end(form) }}

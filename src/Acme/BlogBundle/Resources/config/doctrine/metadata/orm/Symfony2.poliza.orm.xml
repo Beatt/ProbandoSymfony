@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Symfony2.poliza" table="symfony2.poliza">
+    <indexes>
+      <index name="IDX_CBC02C76B05317" columns="idv"/>
+      <index name="IDX_CBC02C766D6DB7FC" columns="idc"/>
+      <index name="IDX_CBC02C768363D6D0" columns="ida"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="unipoliza" columns="idp"/>
+    </unique-constraints>
+    <id name="idv" association-key="true"/>
+    <id name="idc" association-key="true"/>
+    <id name="ida" association-key="true"/>
+    <field name="idp" type="integer" column="idp" nullable="false"/>
+    <field name="importe" type="decimal" column="importe" precision="8" scale="2" nullable="false"/>
+    <field name="comision" type="decimal" column="comision" precision="8" scale="2" nullable="false"/>
+    <one-to-one field="ida" target-entity="Poli.auto">
+      <join-columns>
+        <join-column name="ida" referenced-column-name="ida"/>
+      </join-columns>
+    </one-to-one>
+    <one-to-one field="idc" target-entity="Poli.cliente">
+      <join-columns>
+        <join-column name="idc" referenced-column-name="idc"/>
+      </join-columns>
+    </one-to-one>
+    <one-to-one field="idv" target-entity="Poli.vendedor">
+      <join-columns>
+        <join-column name="idv" referenced-column-name="idv"/>
+      </join-columns>
+    </one-to-one>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,24 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+	
+	<div>
+		<button id="buton">Click</button>
+	</div>
+
+	<h1>Registro Satisfactorio</h1>
+	
+	{#Cuando se trata de un solo objeto
+		no se necesita acceder a el mediante un bucle
+		tan solo accediendo a sus atributos de la tabla
+		ejemplo 
+			{{c.apaterno}}			
+	#}
+	{% for c in calculadoras %}
+		
+			<p>{{c.nombre}} {{c.apaterno}}</p>			
+
+	{% endfor %}
+
+{% endblock %}
+

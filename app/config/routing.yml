@@ -1,3 +1,8 @@
+pruebaprueba:
+    resource: "@PruebapruebaBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 acme_prueba:
     resource: "@AcmePruebaBundle/Controller/"
     type:     annotation

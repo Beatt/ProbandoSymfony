@@ -1,0 +1,62 @@
+CREATE TABLE symfony2.vendedor
+(
+idv integer,
+CONSTRAINT pkven PRIMARY KEY (idv),
+nombres varchar(30) NOT NULL,
+apellidos varchar(30) NOT NULL
+);
+
+CREATE TABLE symfony2.cliente
+(
+idc integer,
+CONSTRAINT pkcli PRIMARY KEY (idc),
+nombres varchar(30) NOT NULL,
+apellidos varchar(30) NOT NULL,
+ciudad varchar(30) NOT NULL
+);
+
+CREATE TABLE symfony2.auto
+(
+ida integer,
+CONSTRAINT pkauto PRIMARY KEY (ida),
+descripcion varchar(50) NOT NULL,
+modelo char(4) NOT NULL
+);
+
+CREATE TABLE symfony2.poliza
+(
+idp integer NOT NULL,
+idv integer NOT NULL,
+idc integer NOT NULL,
+ida integer NOT NULL,
+CONSTRAINT fkven FOREIGN KEY (idv) REFERENCES symfony2.vendedor (idv),
+CONSTRAINT fkcli FOREIGN KEY (idc) REFERENCES symfony2.cliente (idc),
+CONSTRAINT fkauto FOREIGN KEY (ida) REFERENCES symfony2.auto (ida),
+importe numeric(8,2) NOT NULL,
+comision numeric(8,2) NOT NULL,
+CONSTRAINT pkpoliza PRIMARY KEY (idv, idc, ida),
+CONSTRAINT unipoliza UNIQUE (idp)
+);
+
+INSERT INTO symfony2.vendedor VALUES(1, 'Alberto', 'Jiménez');
+INSERT INTO symfony2.vendedor VALUES(2, 'Ramón', 'Lara Vega');
+INSERT INTO symfony2.vendedor VALUES(3, 'Alma', 'Beltrán Ortega');
+
+INSERT INTO symfony2.cliente VALUES(1, 'Ana Luisa', 'Cortés Lira', 'DF');
+INSERT INTO symfony2.cliente VALUES(2, 'Julieta', 'Gómez Díaz', 'DF');
+INSERT INTO symfony2.cliente VALUES(3, 'Anabel', 'Alas Rojas', 'EDOMEX');
+INSERT INTO symfony2.cliente VALUES(4, 'Jaime', 'Contreras', 'EDOMEX');
+
+
+INSERT INTO symfony2.auto VALUES(1, 'Reanult Megane', '2002');
+INSERT INTO symfony2.auto VALUES(2, 'VW Jetta', '2002');
+INSERT INTO symfony2.auto VALUES(3, 'Toyota Yaris', '2005');
+INSERT INTO symfony2.auto VALUES(4, 'Seat Leon', '2008');
+INSERT INTO symfony2.auto VALUES(5, 'Camioneta VW', '2011');
+
+INSERT INTO symfony2.poliza(idp, idv, idc, ida, importe, comision) VALUES(200, 2, 3, 2, 5640.87, 245.71);
+INSERT INTO symfony2.poliza(idp, idv, idc, ida, importe, comision) VALUES(201, 2, 1, 1, 6345.12, 201.56);
+INSERT INTO symfony2.poliza(idp, idv, idc, ida, importe, comision) VALUES(202, 3, 2, 3, 4567.23, 100.23);
+INSERT INTO symfony2.poliza(idp, idv, idc, ida, importe, comision) VALUES(203, 2, 3, 4, 7654.34, 345.71);
+
+

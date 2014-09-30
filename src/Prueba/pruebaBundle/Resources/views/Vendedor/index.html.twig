@@ -1,0 +1,32 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}PruebapruebaBundle:Vendedor:{% endblock %}
+
+{% block body %}
+	<h1>Vendedores</h1>
+	{{form_start(form)}}
+		
+		<div class="item-form">
+			{{ form_label(form.nombre) }}
+			{{ form_widget(form.nombre) }}
+			{{ form_errors(form.nombre) }}
+		</div>	
+
+		<div class="item-form">
+			{{ form_label(form.apaterno) }}
+			{{ form_widget(form.apaterno) }}
+			{{ form_errors(form.apaterno) }}
+		</div>
+
+		<div class="item-form">
+			{{ form_label(form.amaterno) }}
+			{{ form_widget(form.amaterno) }}
+			{{ form_errors(form.amaterno) }}
+		</div>
+				
+		<div>
+        	{{ form_widget(form.save) }}
+    	</div>
+	
+	{{form_end(form)}}
+{% endblock %}

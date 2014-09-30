@@ -1,0 +1,43 @@
+CREATE TABLE symfony2.vendedor
+(
+idv integer,
+CONSTRAINT pkven PRIMARY KEY (idv),
+nombres varchar(30) NOT NULL,
+apellidos varchar(30) NOT NULL
+);
+
+CREATE TABLE symfony2.cliente
+(
+idc integer,
+CONSTRAINT pkcli PRIMARY KEY (idc),
+nombres varchar(30) NOT NULL,
+apellidos varchar(30) NOT NULL,
+ciudad varchar(30) NOT NULL
+);
+
+CREATE TABLE symfony2.auto
+(
+ida integer,
+CONSTRAINT pkauto PRIMARY KEY (ida),
+descripcion varchar(50) NOT NULL,
+modelo char(4) NOT NULL
+);
+
+CREATE TABLE symfony2.poliza
+(
+idp integer NOT NULL,
+idv integer NOT NULL,
+idc integer NOT NULL,
+ida integer NOT NULL,
+CONSTRAINT fkven FOREIGN KEY (idv) REFERENCES poli.vendedor (idv),
+CONSTRAINT fkcli FOREIGN KEY (idc) REFERENCES poli.cliente (idc),
+CONSTRAINT fkauto FOREIGN KEY (ida) REFERENCES poli.auto (ida),
+importe numeric(8,2) NOT NULL,
+comision numeric(8,2) NOT NULL,
+CONSTRAINT pkpoliza PRIMARY KEY (idv, idc, ida),
+CONSTRAINT unipoliza UNIQUE (idp)
+);
+
+INSERT INTO symfony2.vendedor VALUES(1, 'Alberto', 'Jiménez');
+INSERT INTO symfony2.vendedor VALUES(2, 'Ramón', 'Lara Vega');
+INSERT INTO symfony2.vendedor VALUES(3, 'Alma', 'Beltrán Ortega');
