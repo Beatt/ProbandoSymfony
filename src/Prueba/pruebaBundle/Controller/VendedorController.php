@@ -87,4 +87,16 @@ class VendedorController extends Controller
     	
     }
 
+
+    /**
+     * @Route("/login/", name="login")
+     * @Template("PruebapruebaBundle:Calculadora:probandoAjax.html.twig")
+     */
+    public function login() 
+    {
+
+        return array();
+
+    }
+
 }

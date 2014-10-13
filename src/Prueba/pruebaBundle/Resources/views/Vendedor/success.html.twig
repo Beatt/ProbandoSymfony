@@ -1,20 +1,28 @@
+{% extends '::base.html.twig' %}
 
-<table>
+{% block body %}
+
+		    {% image '@PruebapruebaBundle/Resources/public/images/example.png' %}
+        <img src="{{ asset_url }}" alt="Example" />
+{% endimage %} 
+	<table>	
 	
-
 	{% for c in resultado %}
 		
-		{#<p>{{ vendedocliente.id }} {{vendedocliente.nombclientees}} {{vendedocliente.apellidos}}</p>#}
-		{#<p>{{ cliente.id }} {{cliente.nombclientees}} {{cliente.apellidos}} {{ cliente.ciudad }}</p>#}
-		{#<p>{{ poliza.id }} {{poliza.impoclientete}} {{poliza.comision}}</p>#}
-			
-	 	<tr>
-	 		<td>Nombre: {{ c.getClientes().getNombres()}}</td>
-	 		<td>Apellido: {{ c.getClientes().getApellidos()}}</td>
-	 		<td>Ciudad: {{ c.getClientes().getCiudad()}}</td>
-	 		<td>Comisión: {{ c.comision }}</td>
-	 	</tr>
+			{#<p>{{ vendedocliente.id }} {{vendedocliente.nombclientees}} {{vendedocliente.apellidos}}</p>#}
+			{#<p>{{ cliente.id }} {{cliente.nombclientees}} {{cliente.apellidos}} {{ cliente.ciudad }}</p>#}
+			{#<p>{{ poliza.id }} {{poliza.impoclientete}} {{poliza.comision}}</p>#}
+				
+		 	<tr>
+		 		<td>Nombre: {{ c.getClientes().getNombres()}}</td>
+		 		<td>Apellido: {{ c.getClientes().getApellidos()}}</td>
+		 		<td>Ciudad: {{ c.getClientes().getCiudad()}}</td>
+		 		<td>Comisión: {{ c.comision }}</td>
+		 	</tr>
 
-	{% endfor %}
+		{% endfor %}
 
-</table>
+	</table>
+
+
+{% endblock %}
